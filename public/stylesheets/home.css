@@ -8,6 +8,10 @@ body {
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 
+#cluster-map {
+    border-radius: 20px;
+}
+
 .cover-container {
   max-width: 60vw;
 }
@@ -16,22 +20,26 @@ body {
     color: white;
     text-align: center;
     margin-top: 10px;
-    text-decoration: underline;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#cause {
+    color: pink;
 }
 
 .nav-link {
     padding: 0.25rem 0;
     font-weight: 700;
-    color: rgba(255,255,255,0.5);
+    color: rgb(219, 187, 192);
     margin-left: 1rem;
     border-bottom: 0.25rem solid transparent;
 }
 
 .nav-link:hover{
-    color: rgba(255,255,255,0.5);
-    border-bottom-color:rgba(255,255,255,0.5);
+    color: rgb(219, 187, 192);
+    border-bottom-color:rgb(219, 187, 192);
 }
-
+/* rgba(255,255,255,0.5) */
 .nav-link.active {
     color: white;
     border-bottom-color:white;
