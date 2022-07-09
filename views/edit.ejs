@@ -1,82 +1,101 @@
 <% layout('../layouts/boilerplate') %>
 
-    <div class="row">
-        <h1 class="text-center">New Opportunity</h1>
-        <div class="col-6 offset-3">
-            <form method="POST" action="/opportunities/<%= foundOpportunity._id %>?_method=PUT" class="validatedForm" novalidate
-                enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" id="title" name="opportunity[title]"
-                        value="<%= foundOpportunity.title %>" required>
-                </div>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/edit.css">
+</head>
 
-                <div class="mb-3">
-                    <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" id="location" name="opportunity[location]"
-                        value="<%= foundOpportunity.location %>" required>
-                </div>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+<body>
+    <div class="container py-3 opacity-75.5">
+        <div class="justify-content-center row">
+            <div class="col-xl-9">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="col-6 offset-3">
+                            <h1 class="text-center">Edit Opportunity</h1>
+                                <form method="POST" action="/opportunities/<%= foundOpportunity._id %>?_method=PUT" class="validatedForm" novalidate
+                                    enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="title">Title</label>
+                                        <input class="form-control" type="text" id="title" name="opportunity[title]"
+                                            value="<%= foundOpportunity.title %>" required>
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="contact">Contact</label>
-                    <input
-                      class="form-control"
-                      type="text"
-                      id="contact"
-                      placeholder="eg.  83257321"
-                      name="opportunity[contact]"
-                      required
-                    />
-                  </div>
-                  <div class="valid-feedback">Looks good!</div>
-  
-                  <div class="mb-3">
-                    <label class="form-label" for="email">Email Address</label>
-                    <input
-                      class="form-control"
-                      type="text"
-                      id="email"
-                      placeholder="eg.  helpinghands@gmail.com"
-                      name="opportunity[email]"
-                      required
-                    />
-                  </div>
-                  <div class="valid-feedback">Looks good!</div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="location">Location</label>
+                                        <input class="form-control" type="text" id="location" name="opportunity[location]"
+                                            value="<%= foundOpportunity.location %>" required>
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
 
-                <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" type="text" id="description" name="opportunity[description]"
-                        required><%= foundOpportunity.description %></textarea>
-                </div>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="contact">Contact</label>
+                                        <input
+                                        class="form-control"
+                                        type="text"
+                                        id="contact"
+                                        placeholder="eg.  83257321"
+                                        name="opportunity[contact]"
+                                        required
+                                        />
+                                    </div>
+                                    <div class="valid-feedback">Looks good!</div>
+                    
+                                    <div class="mb-3">
+                                        <label class="form-label" for="email">Email Address</label>
+                                        <input
+                                        class="form-control"
+                                        type="text"
+                                        id="email"
+                                        placeholder="eg.  helpinghands@gmail.com"
+                                        name="opportunity[email]"
+                                        required
+                                        />
+                                    </div>
+                                    <div class="valid-feedback">Looks good!</div>
 
-                <div class="mb-3">
-                    <label for="image" class="form-label">Add Images</label>
-                    <input class="form-control" type="file" id="image" name="image" multiple />
-                </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="description">Description</label>
+                                        <textarea class="form-control" type="text" id="description" name="opportunity[description]"
+                                            required><%= foundOpportunity.description %></textarea>
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
 
-                <div class="mb-3">
-                    <% foundOpportunity.images.forEach(function(img, i) { %>
-                        <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
-                        <div class="form-check-inline">
-                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Add Images</label>
+                                        <input class="form-control" type="file" id="image" name="image" multiple />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <% foundOpportunity.images.forEach(function(img, i) { %>
+                                            <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+                                            <div class="form-check-inline">
+                                                <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                                            </div>
+                                            <label for="image-<%=i%>">Delete?</label>
+                                            <% })%>
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button class="rounded-pill btn btn-outline-success fw-bold">Update Opportunity Details</button>
+                                    </div>
+                                    <hr>
+                                    <div class="d-grid">
+                                        <a href="/opportunities" class="rounded-pill btn btn-success fw-bold">Back to Opportunities</a>
+                                    </div>
+                                </form>
                         </div>
-                        <label for="image-<%=i%>">Delete?</label>
-                        <% })%>
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                    <button class="btn btn-success">Update Opportunity Details</button>
-                </div>
-            </form>
-            <a href="/opportunities">All Opportunities</a>
+            </div>
         </div>
     </div>
+</body>
