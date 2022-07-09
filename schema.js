@@ -28,6 +28,9 @@ module.exports.opportunitySchema = Joi.object({
         title: Joi.string().required().escapeHTML(),
         location: Joi.string().required().escapeHTML(),
         description: Joi.string().required().escapeHTML(),
+        email: Joi.string().required().escapeHTML(),
+        contact: Joi.string().required().escapeHTML()
+        // website: Joi.string().required()
         // image: Joi.string().required()
     }).required(),
     deleteImages: Joi.array()
