@@ -84,7 +84,7 @@
                 <% if (currentUser) { %>
                     <div class="card shadow">
                         <div class="card-body">
-                            <h2 class="h2 pb-2 mb-4 text-danger border-bottom border-danger">Leave a Review</h2>
+                            <h2 class="h2 pb-2 mb-4 text-danger border-bottom border-danger">Leave a Feedback</h2>
                             <form action="/opportunities/<%=foundOpportunity._id%>/reviews" method="POST" class="mb-3 validatedForm"
                                 novalidate>
                                 <fieldset class="starability-basic mt-4">
@@ -102,7 +102,7 @@
                                     <label for="first-rate5" title="Amazing">5 stars</label>
                                 </fieldset>
                                 <div class="mb-3">
-                                    <label class="form-label" for="body">Review</label>
+                                    <label class="form-label" for="body">Feedback</label>
                                     <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
                                         required></textarea>
                                     <div class="valid-feedback">
@@ -123,7 +123,7 @@
                                             <p class="starability-result" data-rating="<%=review.rating%>">
                                                 Rated: <%= review.rating %> stars
                                             </p>
-                                            <p class="card-text">Review: <%= review.body %>
+                                            <p class="card-text">Feedback: <%= review.body %>
                                             </p>
                                             <% if( currentUser && review.author.equals(currentUser._id)) {%>
                                                 <form
