@@ -1,12 +1,19 @@
 <% layout('../layouts/boilerplate') %>
 
-<div class="container">
-  <h1 class="text-center fw-bold mb-3">
-    Explore the available volunteering opportunities here!
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+</head>
+
+<div class="container mb-3">
+  <h1 class="text-center fw-bold mb-3 title">
+    Explore the latest volunteering opportunities here!
   </h1>
   <div class="row row-cols-3">
     <% for(let opportunity of allOpportunities) { %>
-    <div class="card mb-3 mt-3">
+    <div class="card mt-3">
       <div class="col">
         <div class="col">
           <% if (opportunity.images.length) { %>
@@ -31,7 +38,7 @@
               <small class="text-muted"> <%= opportunity.location%> </small>
             </p>
             <a
-              class="btn btn-primary"
+              class="btn btn-info"
               style="width: 100%"
               href="/opportunities/<%=opportunity._id%>"
               >View <%=opportunity.title%></a
