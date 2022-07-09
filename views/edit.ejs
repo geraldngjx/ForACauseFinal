@@ -24,6 +24,32 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label" for="contact">Contact</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="contact"
+                      placeholder="eg.  83257321"
+                      name="opportunity[contact]"
+                      required
+                    />
+                  </div>
+                  <div class="valid-feedback">Looks good!</div>
+  
+                  <div class="mb-3">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="email"
+                      placeholder="eg.  helpinghands@gmail.com"
+                      name="opportunity[email]"
+                      required
+                    />
+                  </div>
+                  <div class="valid-feedback">Looks good!</div>
+
+                <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" type="text" id="description" name="opportunity[description]"
                         required><%= foundOpportunity.description %></textarea>
