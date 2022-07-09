@@ -1,4 +1,4 @@
-# ForACause2
+# ForACauseFinal
 
 Live Web Demo (Do expect a slight delay due to Heroku loading): https://for-a-cause.herokuapp.com/
 
