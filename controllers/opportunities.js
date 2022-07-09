@@ -14,6 +14,7 @@ module.exports.renderNewForm = async (req, res) => {
 };
 
 module.exports.createOpportunity = async (req, res) => {
+    // console.log(req.body);
     const geoData = await geocoder.forwardGeocode({
         query: req.body.opportunity.location,
         limit: 1
@@ -23,6 +24,7 @@ module.exports.createOpportunity = async (req, res) => {
     newOpportunity.author = req.user._id;
     newOpportunity.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     await newOpportunity.save();
+    console.log(newOpportunity);
     req.flash('success', "Successfully registered a new opportunity!");
     res.redirect(`/opportunities/${newOpportunity._id}`);
 };
