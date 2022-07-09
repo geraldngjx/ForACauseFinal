@@ -17,6 +17,8 @@ const OpportunitySchema = new Schema({
     title: String,
     description: String,
     location: String,
+    email: String,
+    contact: Number,
     geometry: {
         type: {
             type: String,
